@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WCF4MSTG18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WCF4MSTG18');
+</script>
+    <link rel="preload" href="/fonts/FinkHeavy.woff2" as="font" type="font/woff2" crossorigin>
+	<link href="/w3.css" rel="stylesheet">
+    	<link href="/stylesheet.css" rel="stylesheet">
+	<title>Walmart 5103 Webpage</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="google-site-verification" content= "https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+#finkheavy-font-yellow {
+  font-family: "FinkHeavy";
+  font-weight: 900;
+  font-style: normal;
+  font-size: 42px;
+  color: #f5e236;
+}
+
+#finkheavy-font-yellow-disclaimer {
+  font-family: "FinkHeavy";
+  font-weight: 900;
+  font-style: normal;
+  font-size: 27px;
+  color: #f5e236;
+}
+
+#arial {
+  font-family: "Arial";
+  font-weight: 900;
+  font-style: normal;
+  font-size: 22px;
+  color: #000000;
+}
+ #leave-site {
+    font-family: "Helvetica";
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+body {
+  margin: 0;
+}
+.banner {
+  background: #009579;
+}
+
+.banner__content {
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.banner__text {
+  flex-grow: 1;
+  line-height: 1.4;
+  font-family: "Quicksand", sans-serif;
+}
+
+.banner__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.banner__text,
+.banner__close > span {
+  color: #ffffff;
+}
+  #warning-popup {
+    font-family: "Helvetica";
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  #warning-popup .popup-content {
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    margin: 100px auto;
+    padding: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+  }
+
+  #warning-popup h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #warning-popup p {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  #warning-popup button {
+    background-color: #3369e7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+		table {
+			margin: auto;
+			border-collapse: collapse;
+		}
+
+		td {
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			vertical-align: middle;
+			border: 1px solid black;
+		}
+
+		.hidden {
+			background-color: gray;
+		}
+
+		.revealed {
+			background-color: white;
+		}
+
+		.mine {
+			background-color: red;
+		}
+
+		.sidebar {
+			height: 100%;
+			width: 150px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #1275ff;
+			overflow-x: hidden;
+			padding-top: 60px;
+            font-family: FinkHeavy
+		}
+
+		.sidebar a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #f5e236;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.sidebar a:hover {
+			color: #f1f1f1;
+		}
+
+		.sidebar .closebtn {
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
+		}
+       
+	</style>
+</head>
+
+<body>
+    <script language=JavaScript>
+<!--
+var message="Right Click Is Not Allowed!!!";
+///////////////////////////////////
+function clickIE4(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("alert(message);return false")
+// ->
+</script>
+<aside class="sidebar">
+		<a href="#home">Home</a>
+		<a href="/forum">Forum</a>
+		<a href="/files">Site files</a>
+		<a href="#walmartradio">Radio</a>
+        <a href="https://youtube.com/c/walmart5103?sub_confirmation=1" target="_blank">YouTube</a>
+	</div>
+</aside>
+<main>
+     <div class="banner">
+    <div class="banner__content">
+      <div class="banner__text">
+        <strong>Please pardon our work!</strong> This site is currently work in progress. Incorrect formatting, old content, etc. may be present. <a href=/>Back to regular view</a>
+      </div>
+      <button class="banner__close" type="button">
+        <span class="material-icons">
+          close
+        </span>
+      </button>
+    </div>
+  </div>
+  <script>
+      document.querySelector(".banner__close").addEventListener("click", function () {
+  this.closest(".banner").style.display = "none";
+});
+    <div id="home"></div>
+	<div style="text-align: center; margin: 0 auto;">
+        <div id="finkheavy-font-yellow">
+	<h1>     Walmart #5103 site</h1>
+</div> 
+		Welcome to my website! Right now this place's a clustered mess, I'm trying my best as a newcomer getting everything sorted out. Thanks for your understanding!
+        <br>
+    <div id="finkheavy-font-yellow-disclaimer">
+        Let's try to get ourselves out of this domain. <a href="#contact-me">Email</a> me if you want to help
+        </div>
+    <br>
+<script>
+const leaveSiteBtn = document.getElementById("leave-site");
+const warningPopup = document.getElementById("warning-popup");
+const closeWarningBtn = document.getElementById("close-warning");
+const stayOnSiteBtn = document.getElementById("stay-on-site");
+const proceedAnywayBtn = document.getElementById("proceed-anyway");
+
+leaveSiteBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  warningPopup.style.display = "block";
+  document.body.style.overflow = "hidden";
+});
+
+closeWarningBtn.addEventListener("click", () => {
+  warningPopup.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+stayOnSiteBtn.addEventListener("click", () => {
+  warningPopup.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+proceedAnywayBtn.addEventListener("click", () => {
+  window.location = leaveSiteBtn.href;
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    warningPopup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
+</script>
+      <br>
+    <br>
+      <div id="arial">
+            FLY EAGLES FLY
+            <br>
+            <br>
+            <audio controls>
+        <source src="/files/Fly, Eagles, Fly - Philadelphia Eagles Fight Song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+      <img src="/files/49ers.jpg" width="600" height="455" href="/files/49ers.jpg">
+      <br>
+      <br>
+      <img src="/files/super bowl script.webp">
+      <br>
+      <br>
+      <img src="/files/free-wifi.jpg">
+      <br>
+      <br>
+      <img src="/files/verizon.png" width="600" height"334">
+      <br>
+      <br>
+      <a href="/files/BK International Original Chicken Sandwiches.mp4">burger king ad</a>
+      <br>
+      <br>
+      <br>
+      <div id="walmartradio">
+          <h>Listen to Walmart radio:</h>
+          <br>
+        <br>
+      <audio controls>
+        <source src="http://stream2.rockbot.com/wmradio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+      <br>
+      <br>
+      
+        <div id="minesweeper-container"></div>
+    <script>
+     const MINE = "💣";
+const FLAG = "🚩";
+
+class Cell {
+  constructor(row, col, isMine) {
+    this.row = row;
+    this.col = col;
+    this.isMine = isMine;
+    this.isRevealed = false;
+    this.isFlagged = false;
+    this.surroundingMines = 0;
+  }
+}
+
+class Board {
+  constructor(rows, cols, mines) {
+    this.rows = rows;
+    this.cols = cols;
+    this.mines = mines;
+    this.cells = [];
+    this.generateBoard();
+  }
+
+  generateBoard() {
+    // Generate cells and place mines
+    for (let row = 0; row < this.rows; row++) {
+      this.cells[row] = [];
+      for (let col = 0; col < this.cols; col++) {
+        this.cells[row][col] = new Cell(row, col, false);
+      }
+    }
+    let placedMines = 0;
+    while (placedMines < this.mines) {
+      let row = Math.floor(Math.random() * this.rows);
+      let col = Math.floor(Math.random() * this.cols);
+      if (!this.cells[row][col].isMine) {
+        this.cells[row][col].isMine = true;
+        placedMines++;
+      }
+    }
+
+    // Count surrounding mines for each cell
+    for (let row = 0; row < this.rows; row++) {
+      for (let col = 0; col < this.cols; col++) {
+        let cell = this.cells[row][col];
+        if (!cell.isMine) {
+          let mines = 0;
+          for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+              if (
+                row + i >= 0 &&
+                row + i < this.rows &&
+                col + j >= 0 &&
+                col + j < this.cols
+              ) {
+                let surroundingCell = this.cells[row + i][col + j];
+                if (surroundingCell.isMine) {
+                  mines++;
+                }
+              }
+            }
+          }
+          cell.surroundingMines = mines;
+        }
+      }
+    }
+  }
+
+  reveal(row, col) {
+    let cell = this.cells[row][col];
+    if (!cell.isRevealed && !cell.isFlagged) {
+      cell.isRevealed = true;
+      if (cell.isMine) {
+        alert("Game Over!");
+      } else if (cell.surroundingMines === 0) {
+        for (let i = -1; i <= 1; i++) {
+          for (let j = -1; j <= 1; j++) {
+            if (
+              row + i >= 0 &&
+              row + i < this.rows &&
+              col + j >= 0 &&
+              col + j < this.cols
+            ) {
+              this.reveal
+
+      function startMinesweeper() {
+  // Initialize game board
+  let board = createBoard();
+
+  // Start game logic
+  playGame(board);
+}
+
+// Start game when page is loaded
+window.onload = startMinesweeper;
+
+      }
+      startMinesweeper();
+    </script>
+    <div id="contact-me"</div>
+    <footer>
+
+      <p>Copyright &copy; <span id="currentYear"></span>. All rights reserved. <a href="http://cpanel.byethost.com/">Administrator login</a></p>
+      This website is by no means affiliated with <a href="https://walmart.com">Walmart, Inc.</a> in any way, shape, or form.
+      <p> This site is measuring traffic via <a href="https://marketingplatform.google.com/about/analytics/">Google Analytics</a>. By visiting this site Google's <a href="https://policies.google.com/privacy">privacy policy</a> may apply. </p>
+      Need to contact me?
+      <button id="reveal-email-button">Show Email</button>
+
+<script>
+document.getElementById("reveal-email-button").addEventListener("click", function() {
+  var image = new Image();
+  this.style.display = "none";
+  image.src = '/site-content/mail'
+  image.style.display = "block";
+  image.style.margin = "0 auto";
+  document.body.appendChild(image);
+});
+</script>
+<br>
+<br>
+    </footer>
+    <script>
+      document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+    </script>
+     </div>
+     </main>
+  </body>
+</html>

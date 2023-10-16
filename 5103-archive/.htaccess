@@ -1,0 +1,7 @@
+ErrorDocument 404 http://walmart5103.my-board.org/404
+
+Redirect 301 /connect-4 https://www.cbc.ca/kidscbc2/content/games/connect_four/index.html
+
+Redirect 301 /tiktok /TikTokTTS
+
+Redirect 301 /ovo https://dedragames.com/games/ovo/1.4.4/?scholastic

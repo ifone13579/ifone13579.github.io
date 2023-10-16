@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WCF4MSTG18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WCF4MSTG18');
+</script>
+<link rel="shortcut icon" type="image/png" href="http://ssl.gstatic.com/classroom/favicon.png">
+<title>Classes</title>
+</head>
+<body>
+<h1>Make your life easier</h1>
+<br>
+<h2>These will not work if you click on them from this site! Make sure to drag them to the bookmarks bar and run (click) on them when you are ready to use them on the website. Either one of these may not work, so please <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdZrRWf36rkJMAjKQYOhrZAfm_k8m7S7Nvh83bg5YG_bgLX7w/viewform">report</a> it to the google form. Thanks!</h2>
+<br>
+Drag the links to your bookmarks (if not visible, use ctrl, shift, b)
+<br>
+<br>
+Iready is not working right now, stay tuned
+<br>
+<br>
+<p>
+Nullify is permanently discontinued. To hear why, read the message down below;
+<p>
+To whom it may concern,
+<p>
+We, the creators of the Nullify iReady exploit, would like to make it clear that we do not support or condone the use of our exploit for cheating or manipulating iReady assessments. Our exploit was developed for educational purposes only, as a proof of concept to demonstrate the potential vulnerabilities in the iReady system.
+<p>
+We acknowledge that our actions may have unintended consequences and apologize for any harm that may have been caused. It was never our intention to undermine the integrity of educational assessments or to provide an unfair advantage to any individual or group of students.
+<p>
+Therefore, we officially disclaim the use of the Nullify exploit and advise against its use in any capacity. We hope that students and educators alike will choose to pursue academic excellence through honest and hard work, without resorting to any unethical or unfair means to gain an advantage.
+<p>
+Thank you for your attention to this matter.
+<p>
+Sincerely, The Nullify Team.
+<br>
+<br>
+I find this message misleading. Of course, their main intent is to let users exploit iready. Apparantly they are being sued. We have the code from the bookmarklet to the extension. You may download them from below.
+<br>
+<br>
+You may download bookmarklet for iready: <a href="/site-content/iready" target="_blank">here</a>
+<br>
+<br>
+The iready extension is here: <a href="/site-content/iready-ext.zip" target="_blank">Extension zip file</a>
+<br>
+<br>
+<a href='javascript:fetch("https://cdn.jsdelivr.net/gh/ading2210/edpuzzle-answers@latest/script.js").then(r => r.text()).then(r => eval(r));'>destroy edpuzzle</a>
+<br>
+<br>
+<a href='javascript:document.write(`<style> iframe{margin:0px; border:none; padding:0px; outline:none} body{margin:0px}</style><iframe src = "https://yexex.github.io" width = ${window.innerWidth} height = ${window.innerHeight} />`)'>Play games on any tab!</a> 
+<br>
+<br>
+<br>
+Issues? Click <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdZrRWf36rkJMAjKQYOhrZAfm_k8m7S7Nvh83bg5YG_bgLX7w/viewform">here</a>!
+<br>
+<br>
+<a href="/" target="_blank">Back to homepage</a>

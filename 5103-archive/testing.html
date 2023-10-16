@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Iframe Source</title>
+  <script>
+    // Array of YouTube embed URLs for each hour from 00:00 to 23:00
+    var videoUrls = [
+      "https://www.youtube.com/embed/qDnrdeNDRio",
+      "https://www.youtube.com/embed/LjrMm_6zmNo",
+      "https://www.youtube.com/embed/oPCkJqbTpaA",
+      "https://www.youtube.com/embed/0Gpa29MRPys",
+      "https://www.youtube.com/embed/ROpWMf0Md6g",
+      "https://www.youtube.com/embed/_qSyWo0Tm4U",
+      "https://www.youtube.com/embed/lS0XGL2rWTI",
+      "https://www.youtube.com/embed/rdVBS1lHDC4",
+      "https://www.youtube.com/embed/QIx22FB3FXo",
+      "https://www.youtube.com/embed/7Rf6gOt_LdY",
+      "https://www.youtube.com/embed/hkP1kOKF2Yk",
+      "https://www.youtube.com/embed/AKXMNP23BnA",
+      "https://www.youtube.com/embed/KJp488yN3VM",
+      "https://www.youtube.com/embed/yWWoDrUZq04",
+      "https://www.youtube.com/embed/gD4Hh115gOk",
+      "https://www.youtube.com/embed/uhnNzw4x7sE",
+      "https://www.youtube.com/embed/cLBhI_9njKw",
+      "https://www.youtube.com/embed/vc1zlXMyZow",
+      "https://www.youtube.com/embed/WH_rj-YzzXI",
+      "https://www.youtube.com/embed/AK5mUK5IQvs",
+      "https://www.youtube.com/embed/du10VZTTZp8",
+      "https://www.youtube.com/embed/HxXOrY_DtVw",
+      "https://www.youtube.com/embed/zANebE1wNjw",
+      "https://www.youtube.com/embed/5hVFsARLcV0"
+    ];
+
+    // Function to update the iframe source based on the current hour
+    function updateIframeSource() {
+      var iframe = document.getElementById('myIframe');
+      var currentTime = new Date();
+      var currentHour = currentTime.getHours();
+      var newSource = videoUrls[currentHour];
+
+      // Update the iframe source
+      iframe.src = newSource;
+    }
+
+    // Function to update the iframe source every hour
+    function updateSourceEveryHour() {
+      updateIframeSource();
+
+      // Calculate the time until the next hour
+      var currentTime = new Date();
+      var nextHour = new Date(
+        currentTime.getFullYear(),
+        currentTime.getMonth(),
+        currentTime.getDate(),
+        currentTime.getHours() + 1,
+        0, 0, 0
+      );
+      var timeUntilNextHour = nextHour - currentTime;
+
+      // Wait for the next hour and update the source again
+      setTimeout(updateSourceEveryHour, timeUntilNextHour);
+    }
+
+    // Start updating the iframe source
+    updateSourceEveryHour();
+  </script>
+</head>
+<body>
+  <iframe id="myIframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+</body>
+</html>
