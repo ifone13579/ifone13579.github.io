@@ -1,7 +1,0 @@
-
-#####THE FOLLOWING IS REQUIRED FOR PROTECTED FOLDERS
-AuthUserFile /home/vol7_2/byethost7.com/b7_33512733/walmart5103.my-board.org/htdocs/protected//.htpasswd.090ef2a2c020f0cbdacce1e6ba0acdc4
-AuthName password_required
-AuthType Basic
-Require valid-user
-########END REQUIRE
