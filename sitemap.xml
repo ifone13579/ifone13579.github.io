@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 01011100.xyz/5103-archive -->
+  <url>
+    <loc>https://01011100.xyz/5103-archive</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Diddy News -->
+  <url>
+    <loc>https://sites.google.com/view/diddy-news</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Amazon Fresh Store -->
+  <url>
+    <loc>https://sites.google.com/view/amazonfreshstore</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ISEPTA Philly -->
+  <url>
+    <loc>https://sites.google.com/view/iseptaphilly</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Walmart Radio -->
+  <url>
+    <loc>https://sites.google.com/view/walmart-radio</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sites Legal -->
+  <url>
+    <loc>https://sites.google.com/view/sites-legal</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
