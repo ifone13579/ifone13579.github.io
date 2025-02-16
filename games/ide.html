@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDE</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="new.css" rel="stylesheet" type="text/css" />
+  <link href="snackbar.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/8df7d40c3b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="this.css">
+</head>
+
+<body>
+  <nav class="bar" id="nav">
+    <h2 id="header"><a class="yex">Yex</a>'s IDE</h2>
+    <a class="updown" id="updown" onclick="b=!b; xd()"><i id='ud' class="fa fa-fw fa-angle-double-up"></i></a>
+    <a href="index.html" data-tippy-content="Home"><i class="fa fa-fw fa-home"></i></a>
+    <a href="about.html" data-tippy-content="About"><i class="fa fa-fw fa-info-circle"></i></a>
+    <a href="games.html" data-tippy-content="Games"><i class="fa fa-fw fa-gamepad"></i></a>
+    <div class="has-dropdown"> 
+      <button id="settings" data-tippy-content="Settings"><i class="fa fa-fw fa-gear"></i></button>
+      <ul class="dropdown">
+        <li class="dropdown-item">
+          <a onclick="theme('red', this)" href="#">Red</a>
+        </li>
+        <li class="dropdown-item">
+          <a onclick="theme('rgb(50, 150, 255)', this)" href="#" class="active">Blue</a>
+        </li>
+        <li class="dropdown-item">
+          <a onclick="theme('limegreen', this)" href="#">Green</a>
+        </li>
+        <li class="dropdown-item">
+          <input type="color" id="thmclr"> 
+          <a href="#" data-custom onclick="theme('white', this, true)">Custom</a>
+        </li>
+      </ul>
+    </div>
+    <a href="bookmarklets.html" data-tippy-content="Bookmarklets"><i class="fa fa-fw fa-bookmark"></i></a>
+    <a href="chat.html" data-tippy-content="Chat"><i class="fa fa-fw fa-wechat"></i></a>
+    <a href="https://discord.gg/V49EfgSWgr" data-tippy-content="Discord"><i class="fab fa-discord"></i></a>
+    <a class="active"><i class="fa fa-fw fa-code"></i></a>
+  </nav>
+  <div class="loader">
+    <div class="loader-logo">
+      <img src="favicon.png" class="loader-logo-image"></img>
+      <h1 class="loader-logo-title"> Yex </h1>
+    </div>
+    <div class="loader-bar"></div>
+  </div>
+  <div class="loaded-overlay"></div>
+  <div id="center">
+  <div id="ide">
+  <textarea placeholder="Enter HTML Source Code" id="editing-html" spellcheck="false" oninput="update(this, 'highlighting-content-html'); sync_scroll(this, 'highlighting-html');" onscroll="sync_scroll(this,'highlighting-html');" 
+onkeydown="check_tab(this, event);"></textarea>
+  <div id="button-container">
+    <button id="head"><span id="s">&lt;</span><span id="el">head</span><span id="s">&gt;</span></button>
+    <button id="body" class="selected"><span id="s">&lt;</span><span id="el">body</span><span id="s">&gt;</span></button>
+  </div>
+  <pre id="highlighting-html" class="language-html" tabindex="0" aria-hidden="true">
+  <code class="language-html" id="highlighting-content-html">
+  </code>
+  </pre>
+  </div>
+  <div id="ide">
+  <textarea placeholder="Enter CSS Source Code" id="editing-css" spellcheck="false" oninput="update(this, 'highlighting-content-css'); sync_scroll(this, 'highlighting-css');" onscroll="sync_scroll(this,'highlighting-css');" 
+onkeydown="check_tab(this, event);"></textarea>
+  <pre id="highlighting-css" class="language-css" tabindex="0" aria-hidden="true">
+  <code class="language-css" id="highlighting-content-css">
+  </code>
+  </pre>
+  </div> 
+  <div id="ide">
+  <textarea placeholder="Enter JavaScript Source Code" id="editing-js" spellcheck="false" oninput="update(this, 'highlighting-content-js'); sync_scroll(this, 'highlighting-js');" onscroll="sync_scroll(this, 'highlighting-js');" 
+onkeydown="check_tab(this, event);"></textarea>
+  <pre id="highlighting-js" class="language-javascript" tabindex="0" aria-hidden="true">
+  <code class="language-javascript" id="highlighting-content-js">
+  </code>
+  </pre>
+  </div>
+  </div>
+  <br/>
+  <div id="center"> <a class="btn" onclick="exec()">Execute Code</a> </div>
+  <br/>
+  <div id="center"> <iframe id="test" srcdoc=""></iframe> </div>
+
+  <script src="popper.js"></script>
+  <script src="tippy.js"></script>
+  <script src="snackbar.js"></script>
+  <script src="updown.js"></script>
+  <script src="this.js"></script>
+  <script src="https://yexex.github.io/js-addons/addons.js"></script>
+  <script>
+    if(document.referrer.endsWith('d7y27b12c778cb372k2lga0p47h.html')) 
+      setTimeout(() => {
+        SnackBar({
+          message: "Redirected From Old Link",
+          status: 'info',
+          theme: 'darker',
+          position: "br",
+          fixed: true,
+          timeout: 1500
+        });
+      }, 3000);
+    
+    const test = elem('#test');
+
+    const setCode = v => {
+      elem(`#editing-${v}`).val(localStorage.getItem(`cd${v}`));
+      updateTxt(localStorage.getItem(`cd${v}`), `highlighting-content-${v}`);
+    };
+    
+    const langs = ["html", "css", "js", "html-head"];
+    for(const v of langs) {
+      if(v === "html-head") continue;
+      if(localStorage.getItem(`cd${v}`)) {
+         setCode(v);
+       }
+    }
+    function exec() {
+      test.attr('srcdoc', `
+         <!DOCTYPE html>
+         <html>
+           <head>
+             ${localStorage.includes('cdhtml-head') ? localStorage.getItem('cdhtml-head') : ''}
+             <style> 
+               * {
+                 box-sizing: border-box;
+               }  
+
+               ${elem("#editing-css").val()} 
+             </style>
+           </head>
+           <body>
+             ${localStorage.includes('cdhtml') ? localStorage.getItem('cdhtml') : ''} 
+             <script src="https://yexex.github.io/js-addons/addons.js">\x3C/script> 
+             <script> 
+               ${elem("#editing-js").val()}
+             \x3C/script>
+          </body>
+        </html>
+    `);
+  }
+
+    exec();
+
+    elem('button:where(#head, #body)').forEach(el => {
+       el.onclick = () => { 
+         elem('button:where(#head, #body)').forEach(but => {
+           if(but.hasClass("selected")) 
+              but.removeClass('selected');
+         });
+         if(el.textContent.substring(1, 5) == "head") {
+            elem("#editing-html").attr('head', 'true');
+            if(!localStorage.includes('cdhtml-head')) 
+              localStorage.setItem('cdhtml-head', '');
+            elem("#editing-html").val(localStorage.getItem('cdhtml-head'));
+            updateTxt(localStorage.getItem('cdhtml-head'), "highlighting-content-html");
+         } 
+         if(elem("#editing-html").hasAttribute('head') && el.textContent.substring(1, 5) == "body") {
+           elem("#editing-html").removeAttribute('head');
+           if(!localStorage.includes('cdhtml')) 
+             localStorage.setItem('cdhtml', '');
+           elem("#editing-html").val(localStorage.getItem('cdhtml'));
+           updateTxt(localStorage.getItem('cdhtml'), "highlighting-content-html");
+         }
+         el.addClass('selected'); 
+       };
+    });
+    
+    function update(el, hel) {
+      var text = el.val();
+      if(el.hasAttribute('head'))
+        localStorage.setItem('cdhtml-head', text);
+      else 
+        localStorage.setItem(`cd${hel.substring(21, hel.length)}`, text);
+      let result_element = elem("#" + hel);
+      if(text[text.length-1] == "\n") {
+        text += " ";
+      }
+      result_element.html(text.replace(new RegExp("&", "g"), "&amp;").replace(new RegExp("<", "g"), "&lt;").replace(new RegExp(">", "g"), "&gt;"));
+      hljs.highlightElement(result_element);
+    }
+
+    function updateTxt(text, hel) {
+      if(elem("#" + hel).parentElement.parentElement.children[0].hasAttribute('head'))
+        localStorage.setItem('cdhtml-head', text);
+      else 
+        localStorage.setItem(`cd${hel.substring(21, hel.length)}`, text);
+      let result_element = elem("#" + hel);
+      if(text[text.length-1] == "\n") {
+        text += " ";
+      }
+      result_element.html(text.replace(new RegExp("&", "g"), "&amp;").replace(new RegExp("<", "g"), "&lt;").replace(new RegExp(">", "g"), "&gt;"));
+      hljs.highlightElement(result_element);
+    }
+
+  function sync_scroll(element, hel) {
+    let result_element = elem("#" + hel);
+    result_element.scrollTop = element.scrollTop;
+    result_element.scrollLeft = element.scrollLeft;
+  }
+
+let qstrt = 0;
+let qfnsh = 0; 
+let pstrt = 0;
+let pfnsh = 0;  
+let bstrt = 0;
+let bfnsh = 0;  
+function check_tab(element, event) {
+  let code = element.val();
+  if(event.key == "Tab") {
+    event.preventDefault(); 
+    let before_tab = code.slice(0, element.selectionStart);
+    let after_tab = code.slice(element.selectionEnd, element.val().length); 
+    let cursor_pos = element.selectionEnd + 1;  
+    element.val(before_tab + "\t" + after_tab);
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+  
+  if(event.code == "Quote") {
+    var dble = event.key == '"';
+    event.preventDefault();
+    let before_add = code.slice(0, element.selectionStart); // text before tab
+    let after_add = code.slice(element.selectionEnd, element.val().length); // text after tab
+    let cursor_pos = element.selectionEnd + 1;
+    element.val(before_add + (dble ? '""' : "''") + after_add);
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    qstrt = cursor_pos;
+    qfnsh = cursor_pos;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+
+  if(event.key == "(") {
+    event.preventDefault();
+    let before_add = code.slice(0, element.selectionStart); // text before tab
+    let after_add = code.slice(element.selectionEnd, element.val().length); // text after tab
+    let cursor_pos = element.selectionEnd + 1;
+    element.val(before_add + '()' + after_add);
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    pstrt = cursor_pos;
+    pfnsh = cursor_pos;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+
+  if(event.code == "BracketLeft") {
+    var crly = event.key == "{";
+    event.preventDefault();
+    let before_add = code.slice(0, element.selectionStart); // text before tab
+    let after_add = code.slice(element.selectionEnd, element.val().length); // text after tab
+    let cursor_pos = element.selectionEnd + 1;
+    element.val(before_add + (crly ? '{}' : '[]') + after_add);
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    bstrt = cursor_pos;
+    bfnsh = cursor_pos;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+  
+  if(event.key == "Backspace" && element.selectionEnd == qfnsh && element.selectionStart == qstrt) {
+    event.preventDefault();
+    let before_del = code.slice(0, element.selectionStart);
+    let after_del = code.slice(element.selectionEnd, element.val().length);
+    let cursor_pos = element.selectionEnd - 1;
+    element.val(before_del.substring(0, before_del.length - 1) + after_del.substring(1, after_del.length));
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    qstrt = -1;
+    qfnsh = -1;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+
+  if(event.key == "Backspace" && element.selectionEnd == pfnsh && element.selectionStart == pstrt) {
+    event.preventDefault();
+    let before_del = code.slice(0, element.selectionStart);
+    let after_del = code.slice(element.selectionEnd, element.val().length);
+    let cursor_pos = element.selectionEnd - 1;
+    element.val(before_del.substring(0, before_del.length - 1) + after_del.substring(1, after_del.length));
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    pstrt = -1;
+    pfnsh = -1;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+
+  if(event.key == "Backspace" && element.selectionEnd == bfnsh && element.selectionStart == bstrt) {
+    event.preventDefault();
+    let before_del = code.slice(0, element.selectionStart);
+    let after_del = code.slice(element.selectionEnd, element.val().length);
+    let cursor_pos = element.selectionEnd - 1;
+    element.val(before_del.substring(0, before_del.length - 1) + after_del.substring(1, after_del.length));
+    element.selectionStart = cursor_pos;
+    element.selectionEnd = cursor_pos;
+    bstrt = -1;
+    bfnsh = -1;
+    if(element.id == "editing-js") {
+      updateTxt(element.val(), 'highlighting-content-js');
+    } else if(element.id == "editing-html") {
+      updateTxt(element.val(), 'highlighting-content-html');
+    } else if(element.id == "editing-css") {
+      updateTxt(element.val(), 'highlighting-content-css');
+    } else {
+      updateTxt(element.val(), 'highlighting-content-js');
+    }
+  }
+}
+  </script>
+</body>
+</html>
