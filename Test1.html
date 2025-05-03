@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live SEPTA Bus Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([39.9526, -75.1652], 12); // Philly
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18
+    }).addTo(map);
+
+    function fetchAndMapBuses() {
+      fetch("https://api.codetabs.com/v1/proxy/?quest=https://www3.septa.org/api/TransitViewAll/index.php")
+        .then(response => response.json())
+        .then(data => {
+          // Clear existing markers if needed
+          if (window.busMarkers) {
+            window.busMarkers.forEach(marker => map.removeLayer(marker));
+          }
+          window.busMarkers = [];
+
+          // Loop through routes
+          data.routes.forEach(route => {
+            const buses = route["*"];
+            if (Array.isArray(buses)) {
+              buses.forEach(bus => {
+                const lat = parseFloat(bus.lat);
+                const lng = parseFloat(bus.lng);
+                if (!isNaN(lat) && !isNaN(lng)) {
+                  const marker = L.marker([lat, lng]).addTo(map)
+                    .bindPopup(`<b>${bus.label}</b><br>To: ${bus.destination}<br>Direction: ${bus.Direction}`);
+                  window.busMarkers.push(marker);
+                }
+              });
+            }
+          });
+        })
+        .catch(err => {
+          console.error("Failed to fetch SEPTA data", err);
+        });
+    }
+
+    // Fetch once and then refresh every 30 seconds
+    fetchAndMapBuses();
+    setInterval(fetchAndMapBuses, 30000);
+  </script>
+</body>
+</html>
